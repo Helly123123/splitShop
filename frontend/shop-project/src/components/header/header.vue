@@ -1,89 +1,144 @@
+<script setup>
+import { inject } from "vue";
+const { openDrawer } = inject("drawer");
+</script>
+
 <template>
-    <header>
-       <nav class="nav">
-        <a class="page" href="">Корзина</a>
-        <a class="page" href="">Избранное</a>
-        <a class="logo" href="">Cold Wind</a>
-        <a class="page" href="">О нас</a>
-        <a class="page" href="">Каталог</a>
-        <a class="page" href="">Войти</a> 
-       </nav>
-    </header>
+  <header>
+    <nav class="nav">
+      <a class="logo page" href="">Cold Wind</a>
+      <img src="/header/menu.svg" class="menu page" alt="" />
+      <div class="search-cont">
+        <img src="/header/search.svg" class="search-img" alt="" />
+        <input placeholder="Найти в Каталоге" class="search page" type="text" />
+      </div>
+      <div class="header-btn-cont page">
+        <img src="/header/bas.svg" alt="" />
+        <p>Корзина</p>
+      </div>
+      <div class="header-btn-cont page">
+        <img src="/header/liked.svg" alt="" />
+        <p>Избранные</p>
+      </div>
+      <a class="login-btn page" href="">Войти</a>
+    </nav>
+    <!-- <div class="menu-block">
+      <h1 class="main menu-page">Главная</h1>
+      <h1 class="catalog menu-page">Каталог</h1>
+      <h1 class="about-us menu-page">О нас</h1>
+    </div> -->
+  </header>
 </template>
 
-<script>
-
-</script>
+<script></script>
 
 <style scoped>
 .nav {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
+  margin-top: 53px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .page {
-    position: relative;
-    margin: 13px;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
-    font-size: 30px; 
-    text-decoration: none;
-    color: black;
-    transition: all 0.2s;
+  margin-left: 20px;
 }
-
-
-.page:hover:before {
-    transform: scaleX(1);
-    transition: transform 0.25s;
-}
-
-.page:before {
-    content: '';
-    width: 100%;
-    height: 1px;
-    background-color: rgb(141, 141, 141);
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    transform: scaleX(0);
-    transition: transform 0.25s;
-}
-
-
 
 .logo {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 600;
-    font-size: 40px;
-    background: linear-gradient(270deg, #88c9f9 0%, #5c87c7 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: font-size 0.1s;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  text-decoration: none;
+  color: black;
 }
 
-.logo:hover {
-    transition: font-size 0.1s;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 600;
-    font-size: 43px;
-    background: linear-gradient(270deg, #88c9f9 0%, #5c87c7 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.menu {
+  cursor: pointer;
 }
 
-.login {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 300;
-    font-size: 22px; 
-    text-decoration: none;
-    color: black;
+.search-cont {
+  position: relative;
+  display: flex;
 }
 
+.search-img {
+  position: absolute;
+  left: 35px;
+  top: 12px;
+}
+
+.search {
+  width: 974px;
+  height: 25px;
+  border-radius: 15px;
+  background-color: #efeeed;
+  border: none;
+  color: #8e8e8e;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  padding: 15px 15px 15px 55px;
+  outline: none;
+}
+
+.header-btn-cont {
+  height: 24px;
+  background-color: #efeeed;
+  display: flex;
+  align-items: center;
+  padding: 16px 23px 16px 23px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.header-btn-cont:hover {
+  background-color: #d7d5d5;
+  transition: all 0.25s;
+}
+
+.header-btn-cont p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  margin-left: 7px;
+}
+
+.login-btn {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  height: 24px;
+  background-color: #efeeed;
+  padding: 16px 23px 16px 23px;
+  border-radius: 15px;
+}
+
+.menu-block {
+  width: 200px;
+  height: 210px;
+  background-color: #efeeed;
+  border-radius: 15px;
+  margin-left: 240px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.menu-page {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 25px;
+  cursor: pointer;
+}
 
 </style>

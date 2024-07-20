@@ -1,20 +1,18 @@
 <script setup>
-import MainSlider from "../mainPage/slider/mainSlider.vue";
-import Slider from "../mainPage/slider/slider.vue";
-import Choose from "../mainPage/choose/choose.vue";
-import Application from "../mainPage/application/application.vue";
-import Header from "../header/header.vue";
-import Footer from "../footer/footer.vue";
+import MainSlider from "../components/mainPage/slider/mainSlider.vue";
+import Slider from "../components/mainPage/slider/slider.vue";
+import Choose from "../components/mainPage/choose/choose.vue";
+import Application from "../components/mainPage/application/application.vue";
+import Footer from "../components/footer/footer.vue";
 </script>
 
 <template>
-  <Header />
   <div class="cont-title">
     <MainSlider class="main-slider" />
     <div class="cont-main-title">
       <h1 class="main-title">Летние <br/> Скидки</h1>
     </div>
-  </div>
+  </div>  
   <main class="main">
     <h1 class="slider-title">Наши новинки</h1>
     <Slider />
@@ -31,8 +29,7 @@ import Footer from "../footer/footer.vue";
 <script></script>
 
 <style scoped>
-
-
+  
 body, html {
     overflow-x: hidden;
     background-color: #faf8f8;
@@ -60,12 +57,11 @@ body, html {
 }
 
 .main-slider {
-  margin-left: 100px;
+  margin-left: 50px;
 }
 
 .Application-cont {
   display: flex;
-  /* align-items: center; */
   justify-content: center;
   flex-direction: column;
   text-align: left;
