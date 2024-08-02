@@ -1,5 +1,6 @@
 <script setup>
 import CardList from "../components/catalog/card/cardList.vue";
+import Filter from "../components/catalog/filter.vue";
 import {
   onMounted,
   ref,
@@ -9,8 +10,14 @@ import {
   computed,
   inject,
 } from "vue";
-const { cart, addToCart, removeToCart, onClickAddRemove, onClickOpenInfoCard, onClickAddPlus } =
-  inject("cart");
+const {
+  cart,
+  addToCart,
+  removeToCart,
+  onClickAddRemove,
+  onClickOpenInfoCard,
+  onClickAddPlus,
+} = inject("cart");
 
 const items = reactive([
   {
@@ -21,7 +28,7 @@ const items = reactive([
     square: 22,
     price: 21000,
     isAdded: false,
-    inDrawer: false
+    inDrawer: false,
   },
   {
     id: 1,
@@ -31,7 +38,7 @@ const items = reactive([
     square: 22,
     price: 21000,
     isAdded: false,
-    inDrawer: false
+    inDrawer: false,
   },
   {
     id: 1,
@@ -41,7 +48,7 @@ const items = reactive([
     square: 22,
     price: 21000,
     isAdded: false,
-    inDrawer: false
+    inDrawer: false,
   },
   {
     id: 1,
@@ -51,7 +58,7 @@ const items = reactive([
     square: 22,
     price: 21000,
     isAdded: false,
-    inDrawer: false
+    inDrawer: false,
   },
   {
     id: 1,
@@ -61,7 +68,7 @@ const items = reactive([
     square: 22,
     price: 21000,
     isAdded: false,
-    inDrawer: false
+    inDrawer: false,
   },
   {
     id: 1,
@@ -71,26 +78,24 @@ const items = reactive([
     square: 22,
     price: 21000,
     isAdded: false,
-    inDrawer: false
+    inDrawer: false,
   },
-  
 ]);
 </script>
 
 <template>
   <Header />
   <main>
-    <div class="cont-catalog">
-      <input class="catalog-search" type="text" placeholder="Поиск..." />
-      <img class="filter-btn" src="/catalog/search.svg" alt="" />
+    <div class="cont">
+      <Filter/>
+        <CardList
+        :items="items"
+        @remove-to-cart="onClickAddRemove"
+        @add-to-cart="onClickAddPlus"
+        @open-info-card="onClickOpenInfoCard"
+        class="card-list-catalog"
+      />
     </div>
-    <CardList
-      :items="items"
-      @remove-to-cart="onClickAddRemove"
-      @add-to-cart="onClickAddPlus"
-      @open-info-card="onClickOpenInfoCard"
-      class="card-list-catalog"
-    />
   </main>
 </template>
 
@@ -150,32 +155,15 @@ export default {
 </script>
 
 <style scoped>
-.catalog-search {
-  border-radius: 10px;
-  width: 900px;
-  height: 20px;
-  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.08), 0 0 6px 0 rgba(0, 0, 0, 0.02);
-  background: white;
-  border: none;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  font-size: 20px;
-  padding: 20px;
-  outline: none;
+.card-list-catalog {
+  /* margin-top: 200px; */
 }
 
-.filter-btn {
-  margin-left: 25px;
-}
-
-.cont-catalog {
-  margin-top: 200px;
+.cont {
   display: flex;
   justify-content: center;
-  align-items: center;
+    margin-top: 200px;
+  gap: 200px;
 }
 
-.card-list-catalog {
-  margin-top: 200px;
-}
 </style>

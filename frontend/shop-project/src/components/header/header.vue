@@ -7,30 +7,63 @@ const { openDrawer } = inject("drawer");
   <header>
     <nav class="nav">
       <a class="logo page" href="">Cold Wind</a>
-      <img src="/header/menu.svg" class="menu page" alt="" />
+      <img
+        src="/header/menu.svg"
+        @click="toggleMenu"
+        class="menu page"
+        alt=""
+      />
       <div class="search-cont">
         <img src="/header/search.svg" class="search-img" alt="" />
         <input placeholder="Найти в Каталоге" class="search page" type="text" />
       </div>
-      <div class="header-btn-cont page">
+      <div @click="goToOrder" class="header-btn-cont page">
         <img src="/header/bas.svg" alt="" />
         <p>Корзина</p>
       </div>
-      <div class="header-btn-cont page">
+      <div @click="goToFavourites" class="header-btn-cont page">
         <img src="/header/liked.svg" alt="" />
         <p>Избранные</p>
       </div>
       <a class="login-btn page" href="">Войти</a>
     </nav>
-    <!-- <div class="menu-block">
-      <h1 class="main menu-page">Главная</h1>
-      <h1 class="catalog menu-page">Каталог</h1>
+    <div v-if="showMenu" class="menu-block">
+      <h1 @click="goToMain" class="main menu-page">Главная</h1>
+      <h1 @click="goToCatalog" class="catalog menu-page">Каталог</h1>
       <h1 class="about-us menu-page">О нас</h1>
-    </div> -->
+    </div>
   </header>
 </template>
 
-<script></script>
+<script>
+export default {
+  data() {
+    return {
+      showMenu: false,
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.showMenu = !this.showMenu;
+    },
+    goToMain() {
+      this.$router.push("/");
+      this.showMenu = false;
+    },
+    goToOrder() {
+      this.$router.push("/order");
+      this.showMenu = false;
+    },
+    goToCatalog() {
+      this.$router.push("/catalog");
+      this.showMenu = false;
+    },
+    goToFavourites() {
+      this.$router.push("/favourites");
+    },
+  },
+};
+</script>
 
 <style scoped>
 .nav {
@@ -38,10 +71,7 @@ const { openDrawer } = inject("drawer");
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.page {
-  margin-left: 20px;
+  gap: 20px;
 }
 
 .logo {
@@ -63,8 +93,9 @@ const { openDrawer } = inject("drawer");
 
 .search-img {
   position: absolute;
-  left: 35px;
-  top: 12px;
+  left: 13px;
+  top: 14px;
+  width: 27px;
 }
 
 .search {
@@ -77,7 +108,7 @@ const { openDrawer } = inject("drawer");
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 20px;
-  padding: 15px 15px 15px 55px;
+  padding: 15px 15px 15px 45px;
   outline: none;
 }
 
@@ -122,11 +153,12 @@ const { openDrawer } = inject("drawer");
 }
 
 .menu-block {
+  position: absolute;
   width: 200px;
   height: 210px;
   background-color: #efeeed;
-  border-radius: 15px;
-  margin-left: 240px;
+  border-radius: 10px;
+  margin-left: 200px;
   margin-top: 20px;
   display: flex;
   justify-content: center;
@@ -140,5 +172,4 @@ const { openDrawer } = inject("drawer");
   font-size: 25px;
   cursor: pointer;
 }
-
 </style>

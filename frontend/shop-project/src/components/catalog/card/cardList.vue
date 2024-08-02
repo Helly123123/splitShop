@@ -33,8 +33,8 @@
 <style scoped>
 .card-list {
     display: grid;
-    grid-template-columns: repeat(4, 0.5fr);
-    gap: 0px;
+    grid-template-columns: repeat(3, 0.5fr);
+    gap: 50px;
     place-items: center;
 }
 </style>

@@ -1,82 +1,154 @@
 <script setup>
-import MainSlider from "../components/mainPage/slider/mainSlider.vue";
-import Slider from "../components/mainPage/slider/slider.vue";
-import Choose from "../components/mainPage/choose/choose.vue";
-import Application from "../components/mainPage/application/application.vue";
-import Footer from "../components/footer/footer.vue";
+  import Slider from "../components/mainPage/slider/slider.vue";
+  import InfoBlock from "../components/mainPage/infoBlock/infoBlock.vue";
+  import Footer from "../components/footer/footer.vue";
 </script>
 
 <template>
-  <div class="cont-title">
-    <MainSlider class="main-slider" />
-    <div class="cont-main-title">
-      <h1 class="main-title">Летние <br/> Скидки</h1>
+  <div class="cont">
+    <img class="main-img" src="/mainPage/main_img.svg" alt="" />
+    <div>
+      <h1 class="main-title">Незабываемый Опыт</h1>
+      <h2 class="main-subtitle">Cплит-системы</h2>
+      <div class="info-cont">
+        <div class="sect-info">
+          <h1 class="title-info">90+</h1>
+          <h2 class="subtitle-info">Моделей</h2>
+        </div>
+        <div class="sect-info">
+          <h1 class="title-info">1000+</h1>
+          <h2 class="subtitle-info">Установок</h2>
+        </div>
+      </div>
     </div>
-  </div>  
+    <div class="info-block-cont">
+      <h1>Комфорт в каждый дом</h1>
+      <p>
+        Мы предлагаем профессиональную установку сплит-систем, чтобы обеспечить
+        вам и вашим <br />
+        близким максимальный комфорт в любое время года. Наша компания
+        специализируется на <br />
+        установке современных и надёжных сплит-систем от ведущих производителей.
+      </p>
+      <button class="btn">Каталог</button>
+    </div>
+  </div>
   <main class="main">
-    <h1 class="slider-title">Наши новинки</h1>
-    <Slider />
-    <h1 class="slider-title">Почему выбирают нас?</h1>
-    <Choose />
-    <div class="Application-cont">
-      <h1 class="slider-title">Остались вопросы?</h1>
-      <Application />
+    <InfoBlock/>
+    <div class="reviews-cont">
+      <h1 class="reviews-title">Отзывы наших клиентов</h1>
+      <Slider/>
     </div>
   </main>
-  <Footer />
+  <Footer/>
 </template>
 
 <script></script>
 
 <style scoped>
-  
-body, html {
-    overflow-x: hidden;
-    background-color: #faf8f8;
-  }
+.cont {
+  text-align: center;
+  margin-top: 150px;
+}
 
-.cont-title {
+.main-img {
+  box-shadow: 0 15px 34px 0 rgba(141, 205, 226, 0.15),
+    0 61px 61px 0 rgba(141, 205, 226, 0.13),
+    0 138px 83px 0 rgba(141, 205, 226, 0.08),
+    0 245px 98px 0 rgba(141, 205, 226, 0.02),
+    0 383px 107px 0 rgba(141, 205, 226, 0);
+}
+.main-title {
+  margin-top: 100px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 80px;
+}
+
+.main-subtitle {
+  margin-top: -40px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 50px;
+}
+
+.info-cont {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 100px;
+  gap: 60px;
 }
 
-.main-title {
+.title-info {
   font-family: "Montserrat", sans-serif;
-  font-weight: 650;
-  font-size: 140px;
-  background: linear-gradient(270deg, #ff7223 0%, #ff5e5e 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  font-size: 50px;
+  margin-bottom: -20px;
 }
 
-.cont-main-title {
-  margin-left: 150px;
+.subtitle-info {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 40px;
 }
 
-.main-slider {
-  margin-left: 50px;
+.info-block-cont h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 60px;
+  margin-top: 150px;
 }
 
-.Application-cont {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: left;
+.info-block-cont p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 30px;
+  color: #666;
+  text-align: center;
+}
+
+.btn {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 30px;
+  color: white;
+  border-radius: 15px;
+  background: #504f4f;
+  width: 291px;
+  height: 72px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  transition: all 0.05s;
+}
+
+.btn:hover {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 30px;
+  color: white;
+  border-radius: 15px;
+  background: #646363;
+  width: 291px;
+  height: 72px;
+  text-align: center;
+  border: none;
+  transition: all 0.15s;
 }
 
 .main {
-  margin-top: 200px;
-}
-
-.slider-title {
-  margin-left: 50px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  font-size: 35px;
-  margin-bottom: 40px;
   margin-top: 250px;
 }
+
+.reviews-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 60px;
+  margin-bottom: 100px;
+}
+
+.reviews-cont {
+  margin-top: 250px;
+}
+
 </style>

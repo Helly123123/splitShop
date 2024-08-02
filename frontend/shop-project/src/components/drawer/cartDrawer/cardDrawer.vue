@@ -11,21 +11,23 @@
 </script>
 
 <template>
-    <div class="cart-drawer">
-        <img class="img-drawer" :src="image" alt="">
-        <div class="info-drawer-cont">
-            <h1 class="title-drawer-card">{{title}}</h1>
-            <div class="subtitle-driwer-cont">
-                <p class="model-drawer">Модель: <span>{{model}}</span></p>
-                <p class="square-drawer">Площадь: <span>{{square}} м²</span></p>
-            </div>
-            <div class="price-drawer-cont">
-                <h1 class="price-drawer">{{price}} ₽</h1>
-                <button @click="OnClickOpenInfoCard" class="add-to-card-drawer">Подробнее</button>
-                <img @click="onClickRemove" class="like" src="/un_like.svg" alt="">
-            </div>
+    <div class="card">
+        <div class="img-card-cont">
+          <img @click="onClickRemove" class="like-img" src="/like.svg"  alt="">
+          <img class="img-card" src="/public/catalog/haier.svg" alt="" />
         </div>
-    </div>
+        <div class="info-card">
+          <h1>{{ title }}</h1>
+          <p>
+            Модель: <span class="subtitle">{{ model }}</span>
+          </p>
+          <p>
+            Площадь: <span class="subtitle">{{ square }} м²</span>
+          </p>
+          <h2>{{ price }} ₽</h2>
+          <button>Подробнее</button>
+        </div>
+      </div>
 </template>
 
 <script>
@@ -33,84 +35,75 @@
 </script>
 
 <style scoped>
-.cart-drawer {
-    display: flex;
-    border-radius: 13px;
-    width: 644px;
-    height: 229px;
-    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.08), 0 0 6px 0 rgba(0, 0, 0, 0.02);
-    background-color: white;
-    margin-bottom: 30px;
+.img-card-cont {
+  width: 337px;
+  height: 210px;
+  background-color: #f6f6f6;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
-.img-drawer {
-    width: 250px;
-    margin-left: 20px;
+.card {
+  margin-bottom: 80px;
 }
 
-.info-drawer-cont {
-    /* text-align: center; */
-    margin-left: 45px;
+.info-card {
+  text-align: left;
 }
 
-.title-drawer-card {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    font-size: 25px; 
+.info-card h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 28px;
 }
 
-.model-drawer {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
-    font-size: 18px; 
+.info-card p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #666666;
 }
 
-.model-drawer span {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 300;
-    font-size: 15px; 
+.subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: black;
 }
 
-.square-drawer {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
-    font-size: 18px; 
+.info-card h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 30px;
 }
 
-.square-drawer span {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 300;
-    font-size: 15px; 
+.info-card button {
+  border-radius: 10px;
+  width: 337px;
+  height: 50px;
+  background: #55a34f;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 23px;
+  border: none;
+  color: white;
+  transition: all 0.15s;
 }
 
-.price-drawer-cont {
-    display: flex;
-    align-items: center;
+.like-img {
+  position: absolute;
+  top: 15px;
+  left: 305px;
+  width: 19px;
+  transition: all 0.15s;
+  filter: invert(70%) sepia(6%) saturate(6201%) hue-rotate(309deg) brightness(107%) contrast(116%);
 }
 
-.price-drawer {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    font-size: 30px; 
-}
-
-.add-to-card-drawer {
-    border-radius: 4px;
-    width: 110px;
-    height: 35px;
-    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.08), 0 0 6px 0 rgba(0, 0, 0, 0.02);
-    background: #c1ffac;
-    border: none;
-    margin-left: 40px;
-    margin-right: 10px;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
-    font-size: 13px;
-    transition: all 0.3s;   
-}
-.add-to-card-drawer:hover {
-    width: 120px;
-    height: 38px;
-    transition: all 0.15s;
+.info-card button:hover {
+  background: #53924f;
+  transition: all 0.25s;
 }
 </style>

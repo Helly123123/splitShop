@@ -7,7 +7,8 @@
 </script>
 
 <template>
-    <CardDrawer
+    <div class="catd-drawer-cont">
+      <CardDrawer
     v-for="item in cart"
             :key="item.id"
             :id="item.id"
@@ -20,12 +21,18 @@
             :OnClickOpenInfoCard="() => emit('openInfoCard', item)"
 
           />
+    </div>
 </template>
 
 <script>
 
 </script>
 
-<style>
-
+<style scoped>
+.catd-drawer-cont {
+  display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0px;
+    place-items: center;
+}
 </style>

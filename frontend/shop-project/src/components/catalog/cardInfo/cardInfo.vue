@@ -26,56 +26,30 @@ const { closeInfoCard } = inject("infoCard");
       alt=""
     />
     <div class="img-cont">
-      <img class="img" @click="oneClick" :src="image.one" alt="" />
-      <img class="img" @click="twoClick" :src="image.two" alt="" />
-      <img class="img" @click="threeClick" :src="image.three" alt="" />
-      <img class="img" @click="fourClick" :src="image.four" alt="" />
-    </div>
-    <div class="img-cont-two">
       <img class="main-img" :src="image.mainImg" alt="" />
+      <div class="mini-img-cont">
+        <img @click="oneClick" class="img" :src="image.one" alt="" />
+        <img @click="twoClick" class="img" :src="image.two" alt="" />
+        <img @click="threeClick" class="img" :src="image.three" alt="" />
+        <img @click="fourClick" class="img" :src="image.four" alt="" />
+      </div>
     </div>
     <div class="info-cont">
-      <h1 class="main-title">Характеристики</h1>
-      <div class="info-title-cont">
-        <h1 class="title">{{ title }}</h1>
+      <h1 class="title">Характеристики</h1>
+      <div>
         <p class="subtitle">
           Модель: <span>{{ model }}</span>
         </p>
         <p class="subtitle">
-          Площадь: <span>{{ square }} м²</span>
+          Площадь: <span>{{ square }}</span>
         </p>
         <p class="subtitle">Производитель: <span>Ballu</span></p>
-        <div class="price-cont">
-          <h1 class="price-info">{{ price }} ₽</h1>
-          <button
-            v-if="inDrawer"
-            @click="onClickAddPlusDrawerOrder"
-            class="add-drawer-btn"
-          >
-            Добавлено
-          </button>
-          <button
-            v-else
-            @click="onClickAddPlusDrawerOrder"
-            class="add-drawer-btn"
-          >
-            В корзину
-          </button>
-          <img
-            v-if="isAdded"
-            @click="onClickAddRemove"
-            class="like-btn"
-            src="/un_like.svg"
-            alt=""
-          />
-          <img
-            @click="onClickAddPlus"
-            v-else
-            class="like"
-            src="/like.svg"
-            alt=""
-          />
-        </div>
+        <p class="subtitle">Мощность: <span>9 BTU</span></p>
+      </div>
+      <h2 class="price">{{ price }} ₽</h2>
+      <div class="btn-cont">
+        <button class="buy">Купить сейчас</button>
+        <button class="add-to-card">Добавить в корзину</button>
       </div>
     </div>
   </div>
@@ -133,8 +107,105 @@ export default {
   z-index: 150;
   height: 700px;
   width: 1200px;
-  border-radius: 20px;
+  border-radius: 15px;
   padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+}
+
+.img-cont {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.mini-img-cont {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.main-img {
+  width: 500px;
+  height: 600px;
+}
+
+.img {
+  width: 150px;
+  cursor: pointer;
+}
+
+.info-cont {
+  text-align: left;
+  display: flex;
+  align-items: left;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 35px;
+}
+
+.subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 25px;
+  color: #666666;
+}
+
+.subtitle span {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: black;
+}
+
+.price {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 35px;
+}
+
+.buy {
+  border-radius: 10px;
+  width: 360px;
+  height: 59px;
+  background: #55a34f;
+  border: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: white;
+  transition: all 0.2s;
+}
+
+.buy:hover {
+  background: #5fb859;
+  transition: all 0.25s;
+}
+
+.add-to-card {
+  border: 1.5px solid black;
+  border-radius: 10px;
+  width: 360px;
+  height: 59px;
+  background-color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  transition: all 0.1s;
+  cursor: pointer;
+}
+
+.btn-cont {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .close-info-card {
@@ -148,95 +219,5 @@ export default {
 
 .close-info-card:hover {
   opacity: 100%;
-}
-
-.img-cont {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.img {
-  margin: 10px;
-  width: 165px;
-  height: 149px;
-}
-
-.main-img {
-  width: 500px;
-  height: 500px;
-  margin: 0px 70px 0px 70px;
-}
-
-.info-cont {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.main-title {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  font-size: 35px;
-}
-
-.title {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  font-size: 25px;
-}
-
-.subtitle {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  font-size: 20px;
-}
-
-.subtitle span {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 300;
-  font-size: 15px;
-}
-
-.price-info {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  font-size: 28px;
-}
-
-.price-cont {
-  display: flex;
-  align-items: center;
-}
-
-.add-drawer-btn {
-  border-radius: 4px;
-  width: 149px;
-  height: 42px;
-  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.08), 0 0 6px 0 rgba(0, 0, 0, 0.02);
-  background: #c1ffac;
-  border: none;
-  margin-left: 40px;
-  margin-right: 10px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  transition: all 0.3s;
-}
-.add-drawer-btn:hover {
-  background-color: #b3f99c;
-  transition: all 0.15s;
-}
-
-.add-drawer-btn:active {
-  background-color: #79e256;
-}
-
-.img-cont-two {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 </style>

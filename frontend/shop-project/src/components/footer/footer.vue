@@ -1,20 +1,19 @@
 <template>
-<footer>
-    <div class="logo-footer-cont">
-        <h1 class="logo-footer">ColdWind</h1>
+<footer class="footer">
+    <div class="footer-cont">
+        <h1>ColdWind</h1>
+        <h2>Контакты</h2>
+        <div class="footer-contacts">
+            <img src="/footer/num.svg" alt="">
+            <p>8 922 855-69-98</p>
+        </div>
+        <div class="footer-contacts">
+            <img src="/footer/email.svg" alt="">
+            <p>ColdWind.help@mail.ru</p>
+        </div>
     </div>
-    <div class="info-footer-cont">
-        <h1 class="main-title-footer">Контакты</h1>
-        <h2 class="title-footer">Телефон</h2>
-        <p class="subtitle-footer">+7922 855 6998</p>
-        <p class="subtitle-footer">+7922 855 6998</p>
-    </div>
-    <div class="info-footer-cont">
-        <h1 class="main-title-footer">Навигация</h1>
-        <p class="subtitle-footer">Главная</p>
-        <p class="subtitle-footer">Каталог</p>
-        <p class="subtitle-footer">О нас</p>
-    </div>
+        <div class="card">
+        </div>
 </footer>
 </template>
 
@@ -23,60 +22,57 @@
 </script>
 
 <style scoped>
-footer {
+.footer {
+    margin-top: 300px;
     display: flex;
-    margin-top: 200px;
-    width: 100%;
-    height: 348px;
-    background-color: #5a5a5a;
+    align-items: center;
+    gap: 700px;
+    padding: 30px;
+    height: 352px;
+    background-color: #5A5A5A;
+    text-align: left;
 }
 
-.logo-footer-cont {
-    margin-left: 100px;
-    margin-top: 50px;
+.footer-cont {
+    margin-left: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
-.info-footer-cont {
-    margin-left: 500px;
-    margin-top: 50px;
-}
-
-.logo-footer {
+.footer h1 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 50px;
     color: white;
+}
+
+.footer h2 {
+    margin-top: 40px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+    color: #B0B0B0;
+}
+
+.footer-contacts {
+    display: flex;
+    gap: 10px;
+    margin-top: -40px;
+}
+
+.footer-contacts p {
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
-    font-size: 35px;
+    font-size: 30px;
+    color: #ffffff;
 }
 
-.main-title-footer {
-    color: white;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    font-size: 35px;
-}
-
-.title-footer {
-    color: white;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
-    font-size: 25px;
-}
-
-.subtitle-footer {
-    cursor: pointer;
-    color: white;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 300;
-    font-size: 20px;
-}
-
-.subtitle-footer:hover {
-    text-decoration: underline;
-    cursor: pointer;
-    color: white;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 300;
-    font-size: 20px;
+.card {
+    width: 500px;
+    height: 300px;
+    background-color: rgb(153, 153, 153);
+    border-radius: 10px;
 }
 
 </style>

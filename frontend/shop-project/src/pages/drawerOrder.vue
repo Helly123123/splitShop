@@ -19,14 +19,15 @@ const {onClickAddPlus, onClickAddRemove} = inject('cart')
       <div class="cont-no-item" v-else>
         <NoItemDrawerOrder/>
       </div>
-      <div class="info-drawer-order">
-        <h1 class="title-info-drawer-order">Оформление заказа</h1>
-        <div class="cont-info-price-order">
-          <p>Общая сумма:</p>
-          <span>21 000 ₽</span>
+      <div class="info-drawer-cont">
+        <div class="info-drawer">
+          <h1>Оформление заказа</h1>
+          <div class="price-cont">
+            <h1>Итого:</h1>
+            <h2>89 900 ₽</h2>
+          </div>
         </div>
-        <button v-if="orderCard.length" class="create-order-btn">Оформить заказ</button>
-        <button v-else class="no-create-order-btn">Оформить заказ</button>
+        <button class="create-order-btn">Оформить заказ</button>
       </div>
     </div>
   </div>
@@ -37,18 +38,21 @@ const {onClickAddPlus, onClickAddRemove} = inject('cart')
 <style scoped>
 .drawer-title {
   font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  font-size: 40px;
+  font-weight: 600;
+  font-size: 50px;
+  margin-top: 100px;
+  margin-bottom: 80px;
+  text-align: left;
 }
 
 .info-drawer-order {
   border-radius: 13px;
-  width: 500px;
-  height: 330px;
-  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.08), 0 0 6px 0 rgba(0, 0, 0, 0.02);
-  background: white;
+  width: 450px;
+  height: 200px;
+  background: #F6F6F6;
   margin-left: 200px;
   text-align: center;
+  padding: 20px;
 }
 
 .drawer-cont {
@@ -82,72 +86,61 @@ const {onClickAddPlus, onClickAddRemove} = inject('cart')
   /* цвет фона скролла */
 }
 
-.title-info-drawer-order {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  font-size: 30px;
-  margin-bottom: 100px;
-  margin-top: 30px;
-}
-
-.cont-info-price-order {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.cont-info-price-order p {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 450;
-  font-size: 20px;
-  margin-right: 165px;
-}
-
-.cont-info-price-order span {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 350;
-  font-size: 20px;
-}
-
-.create-order-btn {
-  border-radius: 13px;
-  width: 400px;
-  height: 60px;
-  background: #a5ffa8;
-  border: none;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 450;
-  font-size: 20px;
-  transition: all 0.25s;
-}
-
-.no-create-order-btn {
-  border-radius: 13px;
-  width: 400px;
-  height: 60px;
-  background: #a5ffa8;
-  border: none;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 450;
-  font-size: 20px;
-  transition: all 0.25s;
-  cursor: no-drop;
-}
-
-.create-order-btn:hover {
-  border-radius: 13px;
-  width: 400px;
-  height: 60px;
-  background: #7de481;
-  border: none;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 450;
-  font-size: 22px;
-  transition: all 0.25s;
-}
-
 .cont-no-item {
   height: 650px;
   width: 930px;
+}
+
+.info-drawer-cont {
+  /* border-radius: 15px;
+width: 494px;
+height: 236px;
+background: #f6f6f6; */
+}
+
+.info-drawer  {
+  padding: 10px;
+  border-radius: 15px;
+width: 430px;
+height: 200px;
+background: #f6f6f6;
+}
+
+.info-drawer h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.price-cont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 150px;
+}
+
+.price-cont h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.price-cont h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.create-order-btn {
+  border-radius: 15px;
+  width: 450px;
+height: 56px;
+background: #504f4f;
+border: none;
+margin-top: 15px;
+color: white;
+font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
 }
 </style>

@@ -9,7 +9,6 @@ import {
   inject,
 } from "vue";
 import CardList from "./components/catalog/card/cardList.vue";
-import Drawer from "./components/drawer/drawer.vue";
 import InfoCardList from "./components/catalog/cardInfo/cardInfoList.vue";
 import Header from "./components/header/header.vue";
 
@@ -223,7 +222,7 @@ export default {
 <style>
 body,
 html {
-  background-color: #faf8f8;
+  background-color: #ffffff;
   overflow-x: hidden;
   margin: 0;
   padding: 0;
